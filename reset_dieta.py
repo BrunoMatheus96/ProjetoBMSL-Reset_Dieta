@@ -13,6 +13,7 @@ children = notion.blocks.children.list(PAGE_ID)['results']
 for block in children:
     if block["type"] == "heading_1":
         texto = block["heading_1"]["rich_text"][0]["plain_text"].strip().lower()
+        
     if texto == "refeições" and block["type"] == "to_do" and block["to_do"]["checked"] == True:
         notion.blocks.update(
             block_id=block["id"],
